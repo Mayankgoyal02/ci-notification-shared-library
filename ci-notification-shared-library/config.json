@@ -1,0 +1,7 @@
+{
+    "SMTP_SERVER": "smtp.gmail.com",
+    "SMTP_PORT": 587,
+    "SMTP_USERNAME": "mgaming020997@gmail.com",
+    "SMTP_PASSWORD": "kmjkzodsieoplzfa",
+    "SENDER_EMAIL": "mgaming020997@gmail.com"
+  }

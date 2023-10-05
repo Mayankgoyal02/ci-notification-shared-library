@@ -1,0 +1,83 @@
+<html lang="en">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>
+         HTML Jira Script
+    </title>
+<style>
+table,th,td{
+  border: 1px solid black;
+}
+
+body{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  line-height: 25px;
+}
+
+td{
+  padding:7px 10px;
+}
+
+.heading-data{
+  font-weight: 600;
+  background-color: rgb(152, 152, 152)
+}
+
+@media screen and (max-width:767px){
+  .heading-data{
+    font-size: 14px;
+  }
+
+  .data-column{
+    font-size: 14px;
+  }
+}
+
+</style>
+</head>
+
+<body>
+<div>
+    <p>A change has been detected in the {{sheet_name}} used by the dependent Microservices.  The details are here below.</p>
+
+        <table style="border-spacing:0;width:100%; max-width:fit-content; vertical-align:top;">
+            
+          <tr>
+              <td class="heading-data">
+                Microservices:
+              </td>
+              <td>
+               <p class="data-column">{% for user_id in data_dict.values() %}
+                {{ user_id }}{% if not loop.last %},{% endif %}
+            {% endfor %}</p> 
+              </td>
+            </tr>
+
+            <tr>
+              <td class="heading-data">
+                JIRA Ticket:
+              </td>
+              <td>
+               <p class="data-column">{JIRA_Ticket_Link}</p> 
+              </td>
+            </tr>
+
+            <tr>
+              <td class="heading-data">
+                Artifact Version/Build Number:
+              </td>
+              <td>
+               <p class="data-column">{table}</p> 
+              </td>
+            </tr>
+
+          </table>   
+      
+    <p>You can download the updated artifact from JFrog Artifactory: {Artifactory_Link}.<br>Please review the JIRA ticket for details on this change and its impact on your Microservices.
+      </p>     
+          
+</div>
+</body>
+
+</html>
